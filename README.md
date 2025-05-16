@@ -1,4 +1,5 @@
-<!-- Setup a strong password when signing up -->
+Setup a strong password when signing up
+
 setup: To set up this run the following code 
 pip install Django 
 python -m pip install -U channels 
