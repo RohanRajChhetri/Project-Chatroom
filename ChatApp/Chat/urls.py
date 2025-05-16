@@ -1,12 +1,26 @@
-from django.urls import path, include
-from Chat import views as chat_views
-from django.contrib.auth.views import LoginView, LogoutView
+from django.urls import path
+from .views import (
+    login_view,
+    signup_view,
+    logout_view,
+    chat_dashboard,
+    create_chat,
+    chatPage,
+    rename_chat,
+    delete_chat
+    # Accept chat request view, add when implemented
+)
 
 urlpatterns = [
-    path("", chat_views.chatPage, name="chat-page"),
+    path("", login_view, name="login"),  # Root URL
+    path("login/", login_view, name="login-user"),
+    path("logout/", logout_view, name="logout"),
+    path("signup/", signup_view, name="signup"),
 
-    # authentication section
-    path("login/", LoginView.as_view
-         (template_name="chat/loginPage.html"), name="login-user"),
-    path('logout/', LogoutView.as_view(next_page='login'), name='logout'),
+    path("chat/", chat_dashboard, name="chat-page"),
+    path("chat/<int:chat_id>/", chatPage, name="chat-detail"),
+    path("chat/create/", create_chat, name="create-chat"),
+    # path("chat/accept/<int:request_id>/", accept_chat_request, name="accept-chat"),  # Add when available
+    path("chat/<int:chat_id>/rename/", rename_chat, name="rename-chat"),
+    path("chat/<int:chat_id>/delete/", delete_chat, name="delete-chat"),
 ]

@@ -1,0 +1,46 @@
+{% extends "Chat/basePage.html" %} {% block content %} {% if chat.is_group %}
+<h1>Group Chat: {{ chat.name }}</h1>
+
+<form method="post" action="{% url 'rename-chat' chat.id %}">
+  {% csrf_token %}
+  <label for="new_name">Rename Chat:</label>
+  <input type="text" name="new_name" placeholder="New Chat Name" required />
+  <button type="submit">Rename</button>
+</form>
+{% else %}
+<h1>Chat with {{ other_user.username }}</h1>
+{% endif %}
+
+<div class="messages">
+  {% for msg in messages %}
+  <p>
+    <strong>{{ msg.sender.username }}:</strong> {{ msg.content }}
+    <small>({{ msg.timestamp }})</small>
+  </p>
+  {% empty %}
+  <p>No messages yet.</p>
+  {% endfor %}
+</div>
+
+<form method="post" action="{% url 'chat-detail' chat.id %}">
+  {% csrf_token %}
+  <textarea name="message" required></textarea>
+  <button type="submit">Send</button>
+</form>
+
+<form
+  method="post"
+  action="{% url 'delete-chat' chat.id %}"
+  style="margin-top: 20px">
+  {% csrf_token %}
+  <button
+    type="submit"
+    onclick="return confirm('Are you sure you want to delete this chat?');"
+    style="color: red">
+    Delete Chat
+  </button>
+</form>
+
+<a href="{% url 'chat-page' %}">Back to Dashboard</a>
+
+{% endblock %}
