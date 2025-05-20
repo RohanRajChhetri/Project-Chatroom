@@ -1,0 +1,31 @@
+{% extends "Chat/basePage.html" %} {% block content %}
+<h1>Chat Dashboard</h1>
+
+<h2>Pending Chat Requests</h2>
+<ul>
+  {% for req in chat_requests %}
+  <li>
+    From: {{ req.from_user.username }}
+    <a href="{% url 'accept-chat' req.id %}">Accept</a>
+  </li>
+  {% empty %}
+  <li>No pending requests.</li>
+  {% endfor %}
+</ul>
+
+<h2>Active Chats</h2>
+<ul>
+  {% for chat in chats %} {% if chat.id %}
+  <li>
+    <a href="{% url 'chat-detail' chat.id %}">
+      {% if chat.is_group %} {{ chat.name }} {% else %} {% if chat.other_user %}
+      {{ chat.other_user.username }} {% else %} Unnamed Chat {% endif %}
+    </a>
+  </li>
+  {% endif %} {% endif %} {% empty %}
+  <li>No active chats.</li>
+  {% endfor %}
+</ul>
+
+<p><a href="{% url 'create-chat' %}">Create New Chat</a></p>
+{% endblock %}

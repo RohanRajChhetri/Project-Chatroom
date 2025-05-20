@@ -1,0 +1,18 @@
+{% extends "Chat/basePage.html" %} {% block content %}
+<section class="login-section">
+  <h1>Login</h1>
+  <form method="post">
+    {% csrf_token %}
+    <div>
+      <label for="id_username">Username:</label>
+      {{ form.username }}
+    </div>
+    <div>
+      <label for="id_password">Password:</label>
+      {{ form.password }}
+    </div>
+    <button type="submit">Login</button>
+  </form>
+  <p>Don't have an account? <a href="{% url 'signup' %}">Sign up here</a></p>
+</section>
+{% endblock %}

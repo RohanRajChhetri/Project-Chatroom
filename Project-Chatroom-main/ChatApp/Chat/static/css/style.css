@@ -1,0 +1,202 @@
+/* Reset & base */
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+  font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+  color: #333;
+}
+
+body {
+  background-color: #f9fafb;
+  line-height: 1.6;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  font-size: 16px;
+}
+
+/* Navbar */
+.navbar {
+  background-color: #1f2937; /* dark slate */
+  color: #f9fafb;
+  padding: 1rem 2rem;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  font-weight: 600;
+  font-size: 1.1rem;
+}
+
+.navbar a {
+  color: #f9fafb;
+  text-decoration: none;
+  margin-left: 1rem;
+  transition: color 0.2s ease-in-out;
+}
+
+.navbar a:hover {
+  color: #3b82f6; /* bright blue */
+}
+
+.navbar span {
+  margin-left: 1rem;
+}
+
+/* Main content container */
+main {
+  flex: 1;
+  padding: 2rem;
+  max-width: 800px;
+  margin: 0 auto;
+  width: 100%;
+  background: #ffffff;
+  border-radius: 8px;
+  box-shadow: 0 3px 12px rgba(0, 0, 0, 0.1);
+}
+
+/* Form styling */
+form {
+  margin-top: 1.5rem;
+  display: flex;
+  flex-direction: column;
+}
+
+form div {
+  margin-bottom: 1rem;
+}
+
+label {
+  font-weight: 600;
+  margin-bottom: 0.3rem;
+  display: block;
+  color: #374151; /* slate gray */
+}
+
+input[type="text"],
+input[type="password"],
+textarea,
+select {
+  width: 100%;
+  padding: 0.6rem 0.8rem;
+  border: 1.5px solid #d1d5db; /* light gray */
+  border-radius: 6px;
+  font-size: 1rem;
+  transition: border-color 0.3s ease-in-out;
+}
+
+input[type="text"]:focus,
+input[type="password"]:focus,
+textarea:focus,
+select:focus {
+  border-color: #3b82f6; /* blue */
+  outline: none;
+}
+
+/* Buttons */
+button {
+  background-color: #3b82f6; /* bright blue */
+  color: #ffffff;
+  border: none;
+  padding: 0.75rem 1.25rem;
+  font-size: 1.1rem;
+  border-radius: 6px;
+  cursor: pointer;
+  font-weight: 600;
+  transition: background-color 0.3s ease-in-out;
+}
+
+button:hover {
+  background-color: #2563eb; /* darker blue */
+}
+
+/* Links inside forms */
+p {
+  margin-top: 1rem;
+  font-size: 0.9rem;
+  color: #6b7280; /* gray */
+}
+
+p a {
+  color: #3b82f6;
+  text-decoration: none;
+  font-weight: 600;
+}
+
+p a:hover {
+  text-decoration: underline;
+}
+
+/* Sections */
+.login-section,
+.signup-section {
+  padding: 1rem 0;
+}
+
+/* Messages in chat */
+.messages {
+  max-height: 400px;
+  overflow-y: auto;
+  margin-bottom: 1.5rem;
+  padding-right: 1rem;
+  border: 1px solid #e5e7eb; /* very light gray */
+  border-radius: 6px;
+  background-color: #f3f4f6;
+}
+
+.messages p {
+  margin-bottom: 0.75rem;
+}
+
+.messages p strong {
+  color: #111827; /* near black */
+}
+
+/* Textarea for chat */
+textarea {
+  resize: vertical;
+  min-height: 80px;
+  padding: 0.75rem 1rem;
+  font-size: 1rem;
+  border-radius: 6px;
+  border: 1.5px solid #d1d5db;
+  transition: border-color 0.3s ease-in-out;
+}
+
+textarea:focus {
+  border-color: #3b82f6;
+  outline: none;
+}
+
+/* Lists for chats and requests */
+ul {
+  list-style: none;
+  margin-top: 0.8rem;
+}
+
+ul li {
+  padding: 0.5rem 0;
+  border-bottom: 1px solid #e5e7eb;
+}
+
+ul li a {
+  color: #2563eb;
+  font-weight: 600;
+  text-decoration: none;
+  transition: color 0.2s ease-in-out;
+}
+
+ul li a:hover {
+  color: #1d4ed8;
+}
+
+.input-field {
+  padding: 10px;
+  border: 1px solid #ccc;
+  border-radius: 6px;
+  width: 100%;
+  font-size: 1rem;
+  margin-top: 5px;
+  margin-bottom: 15px;
+  box-sizing: border-box;
+}
