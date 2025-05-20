@@ -7,3 +7,9 @@ python -m pip install -U daphne
 
 python manage.py makemigrations
 python manage.py migrate
+
+#admin Login
+python manage.py createsuperuser
+
+Username- Mishel
+Password- Assessment2
