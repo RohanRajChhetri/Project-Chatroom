@@ -10,6 +10,3 @@ python manage.py migrate
 
 #admin Login
 python manage.py createsuperuser
-
-Username- Mishel
-Password- Assessment2
